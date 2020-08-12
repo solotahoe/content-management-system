@@ -98,4 +98,41 @@ td{
     cursor:pointer !important;
     color:red;
 }
+.hai{
+    color: red;
+}
+
+.loader{
+    height: 45px;
+    animation: rotate linear 3s infinite;
+    transform-origin: bottom center;
+}
+
+
+.circle{
+    display:inline-block !important;
+    background-color: blueviolet !important;
+    height: 30px !important;
+    width: 30px !important;
+    transform: scale(0) !important;
+    border-radius: 50% !important;
+    animation: grow 1.5s linear infinite !important;
+    margin:-5px !important;
+}
+.circle:nth-child(2){
+    background-color: burlywood !important;
+    animation-delay: 0.75s !important;
+}
+
+@keyframes rotate{
+    to{
+        transform: rotate(360deg) !important;
+    }
+}
+
+@keyframes grow{
+    50%{
+        transform:scale(0.8) !important;
+    }
+}
 

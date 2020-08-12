@@ -44,6 +44,13 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
 
   }
 
+  if(isset($_GET['users'])){
+   // echo "users are set";
+}else{
+   // echo 'users are not set';
+    header('location:login.php');
+}
+
 ?>
 
 <head>
@@ -80,15 +87,15 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
                     <a class="nav-link" href="index.php">Dashboard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages.php">pages</a>
+                    <a class="nav-link" href="pages.php?pages=pages">pages</a>
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link " href="post.php">Team</a>
+                    <a class="nav-link " href="post.php?post=post">Team</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="users.php">user</a>
+                    <a class="nav-link" href="">user</a>
                 </li>
 
             </ul>
@@ -101,7 +108,7 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
                     <a class="nav-link" href="#">Welcome solo <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php">logout</a>
+                    <a class="nav-link" href="login.php?logout=logout">logout</a>
                 </li>
 
             </ul>
@@ -163,13 +170,13 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
 
                         <a href="index.php" class="list-group-item list-group-item-action  active main-color-bg"><i
                                 class="fa fa-cog" aria-hidden="true"></i> Dashboard</a>
-                        <a href="pages.php" class="list-group-item list-group-item-action"> <i
+                        <a href="pages.php?pages=pages" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-address-book-o" aria-hidden="true"></i> Pages<span
                                 class="badge badge-light"><?php echo sizeof($articlespage)   ?></span></a>
-                        <a href="Post.php" class="list-group-item list-group-item-action"> <i
+                        <a href="post.php?post=post" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-address-card-o" aria-hidden="true"></i> Team<span
                                 class="badge badge-light">200</span></a>
-                        <a href="users.html" class="list-group-item list-group-item-action"> <i
+                        <a href="users.php?users=users" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-user-circle-o" aria-hidden="true"></i> Users <span
                                 class="badge badge-light"><?php echo  sizeof($articles)   ?></span></a>
 

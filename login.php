@@ -9,11 +9,13 @@ session_start();
 $usernameerr2;
 
  include_once('connections.php');
-if(isset($_SESSION['logged_in'])){
-   header('location:index.php');
-
-
+if(isset($_GET['logout'])){
+    //echo 'get is set';
+    session_destroy();
 }else{
+   // echo 'get is not set';
+}
+
     if(isset($_POST['username'], $_POST['password'])){
         $username=$_POST['username'];
         $password= md5($_POST['password']);
@@ -34,10 +36,11 @@ if(isset($_SESSION['logged_in'])){
 
                 if($num == 1){
                   //userEnter the cooreect details
-                  $_SESSION['logged_in']== true;
+                  session_start();
+                  $_SESSION['logged_in']= $_POST['username'];
 
                   header('location:index.php');
-                  exit();
+                  
 
                 }else{
                     $erorr='username and passoword do not match';
@@ -48,7 +51,7 @@ if(isset($_SESSION['logged_in'])){
     }
 		
 
-}
+
 
 
 

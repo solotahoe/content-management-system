@@ -13,7 +13,13 @@ $articles= $article -> fetch_all();
 $articleusers = new  Article;
 $articlesusersarray= $articleusers -> fetch_allusers();
 // echo md5('password');
-
+//checking if the user is logged in
+if(isset($_GET['pages'])){
+   // echo "pages is set";
+}else{
+    //echo 'pages is not set';
+    header('location:login.php');
+}
 
 if(isset($_POST['page_title'], $_POST['editor1'])){
 
@@ -87,15 +93,15 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
                     <a class="nav-link" href="index.php">Dashboard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages.php">pages</a>
+                    <a class="nav-link" href="pages.php?pages=pages">pages</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="post.php">team</a>
+                    <a class="nav-link" href="post.php?post=post">team</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="users.php">user</a>
+                    <a class="nav-link" href="users.php?users=users">user</a>
                 </li>
 
             </ul>
@@ -108,7 +114,7 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
                     <a class="nav-link" href="#">Welcome solo <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">logout</a>
+                    <a class="nav-link" href="login.php?logout=logout">logout</a>
                 </li>
 
             </ul>
@@ -169,13 +175,13 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
 
                         <a href="index.html" class="list-group-item list-group-item-action  active main-color-bg"><i
                                 class="fa fa-cog" aria-hidden="true"></i> Dashboard</a>
-                        <a href="pages.php" class="list-group-item list-group-item-action"> <i
+                        <a href="pages.php?pages=pages" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-address-book-o" aria-hidden="true"></i> Pages<span
                                 class="badge badge-light"><?php echo sizeof($articles);  ?></span></a>
-                        <a href="Post.php" class="list-group-item list-group-item-action"> <i
+                        <a href="Post.php?post=post" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-address-card-o" aria-hidden="true"></i> team<span
                                 class="badge badge-light">200</span></a>
-                        <a href="users.php" class="list-group-item list-group-item-action"> <i
+                        <a href="users.php?users=users" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-user-circle-o" aria-hidden="true"></i> Users <span
                                 class="badge badge-light"><?php  echo sizeof($articlesusersarray);   ?></span></a>
 

@@ -123,7 +123,12 @@ $conne -> select_db("team");
 
   }
  
-
+if(isset($_GET['post'])){
+    //echo "post is set";
+}else{
+    //echo 'post is not set';
+   // header('location:login.php');
+}
 
 ?>
 
@@ -161,15 +166,15 @@ $conne -> select_db("team");
                     <a class="nav-link" href="index.php">Dashboard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages.php">pages</a>
+                    <a class="nav-link" href="pages.php?pages=pages">pages</a>
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link " href="post.php">team</a>
+                    <a class="nav-link " href="post.php?post=post">team</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="users.php">user</a>
+                    <a class="nav-link" href="users.php?users=users">user</a>
                 </li>
 
             </ul>
@@ -182,7 +187,7 @@ $conne -> select_db("team");
                     <a class="nav-link" href="#">Welcome solo <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">logout</a>
+                    <a class="nav-link" href="login.php?logout=logout">logout</a>
                 </li>
 
             </ul>
@@ -244,13 +249,13 @@ $conne -> select_db("team");
 
                         <a href="index.php" class="list-group-item list-group-item-action  active main-color-bg"><i
                                 class="fa fa-cog" aria-hidden="true"></i> Dashboard</a>
-                        <a href="pages.php" class="list-group-item list-group-item-action"> <i
+                        <a href="pages.php?pages=pages" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-address-book-o" aria-hidden="true"></i> Pages<span
                                 class="badge badge-light"><?php  echo sizeof($articlespage);   ?></span></a>
-                        <a href="Post.php" class="list-group-item list-group-item-action"> <i
+                        <a href="post.php?post=post" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-address-card-o" aria-hidden="true"></i> team<span
                                 class="badge badge-light">20</span></a>
-                        <a href="users.php" class="list-group-item list-group-item-action"> <i
+                        <a href="users.php?users=users" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-user-circle-o" aria-hidden="true"></i> Users <span
                                 class="badge badge-light"><?php  echo sizeof($articles);  ?></span></a>
 
@@ -299,7 +304,7 @@ $conne -> select_db("team");
 
                                 </tr> -->
                                
-                           <form method='post' action='post.php'  enctype='multipart/form-data'> 
+                           <form method='post' action='post.php?post=post'  enctype='multipart/form-data'> 
                                            <input class='btn btn-default' type='file' name='uploadimage' value='upload'><input  class='btn btn-secondary' type='submit' value='upload'/>
                                  </form>
                                  <?php   if(isset($allet)){

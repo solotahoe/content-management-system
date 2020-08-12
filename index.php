@@ -5,12 +5,18 @@
 include_once('booststrap/iclu/connections.php');
 include_once('booststrap/iclu/article.php');
 ///users array
+session_start();
  $article = new  Article;
-$articles= $article -> fetch_allusers();
-
- 
  //print_r(sizeof($articles));
-
+$articles= $article -> fetch_allusers();
+if(isset($_SESSION['logged_in'])){
+   // echo 'sesson is set <br>';
+ //echo 'welcome' ." " .$_SESSION['logged_in'];
+ 
+}else{
+    //echo "session is not set";
+   header('location:login.php');
+}
 
 // echo md5('password');
 
@@ -83,15 +89,15 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
                     <a class="nav-link" href="index.php">Dashboard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages.php">pages</a>
+                    <a class="nav-link" href="pages.php?pages=pages">pages</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="post.php">team</a>
+                    <a class="nav-link" href="post.php?post=post">team</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="users.php">user</a>
+                    <a class="nav-link" href="users.php?users=users">user</a>
                 </li>
 
             </ul>
@@ -104,7 +110,7 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
                     <a class="nav-link" href="#">Welcome solo <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.php">logout</a>
+                    <a class="nav-link" href="login.php?logout=logout">logout</a>
                 </li>
 
             </ul>
@@ -164,13 +170,13 @@ if(isset($_POST['page_title'], $_POST['editor1'])){
 
                         <a href="index.php" class="list-group-item list-group-item-action  active main-color-bg"><i
                                 class="fa fa-cog" aria-hidden="true"></i> Dashboard</a>
-                        <a href="pages.php" class="list-group-item list-group-item-action"> <i
+                        <a href="pages.php?pages=pages" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-address-book-o" aria-hidden="true"></i> Pages<span
                                 class="badge badge-light"><?php  echo sizeof($articlespage);  ?></span></a>
-                        <a href="Post.php" class="list-group-item list-group-item-action"> <i
+                        <a href="post.php?post=post" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-address-card-o" aria-hidden="true"></i> Team<span
                                 class="badge badge-light">200</span></a>
-                        <a href="users.php" class="list-group-item list-group-item-action"> <i
+                        <a href="users.php?users=users" class="list-group-item list-group-item-action"> <i
                                 class="fa fa-user-circle-o" aria-hidden="true"></i> Users <span
                                 class="badge badge-light"><?php   echo sizeof($articles);  ?></span></a>
 
